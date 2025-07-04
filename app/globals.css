@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent: #e0f11f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  cursor: none;
+}
+
+/* Mobile-first cursor handling */
+@media (max-width: 767px) {
+  body {
+    cursor: auto;
+  }
+}
+
+/* Light mode glow effects - more subtle and refined */
+.glow-accent {
+  box-shadow: 0 0 20px rgba(224, 241, 31, 0.15);
+}
+
+.glow-accent-strong {
+  box-shadow: 0 0 30px rgba(224, 241, 31, 0.25);
+}
+
+/* Dark mode specific glows - more vibrant */
+.dark .glow-accent {
+  box-shadow: 0 0 20px rgba(224, 241, 31, 0.3);
+}
+
+.dark .glow-accent-strong {
+  box-shadow: 0 0 40px rgba(224, 241, 31, 0.6);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #e0f11f, #b8e000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Light mode pulse glow - subtle and elegant */
+@keyframes pulse-glow-light {
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(224, 241, 31, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(224, 241, 31, 0.25);
+  }
+}
+
+/* Dark mode pulse glow - vibrant */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(224, 241, 31, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(224, 241, 31, 0.6);
+  }
+}
+
+.dark .pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow-light 2s ease-in-out infinite;
+}
+
+/* Ensure proper contrast for accent backgrounds */
+.bg-accent {
+  color: #111111 !important;
+}
+
+.bg-accent * {
+  color: #111111 !important;
+}
+
+/* Light mode background patterns - subtle and elegant */
+.light-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(224, 241, 31, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Light mode card shadows */
+.light-card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.light-card-shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Light mode hover effects */
+.light-hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Enhanced link underlines for light mode */
+.light-link-underline {
+  position: relative;
+}
+
+.light-link-underline::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(90deg, #e0f11f, #b8e000);
+  transition: width 0.3s ease;
+}
+
+.light-link-underline:hover::after {
+  width: 100%;
+}
+
+/* Theme transition for smooth switching */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  /* Prevent horizontal scroll on mobile */
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Improve touch targets */
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better text rendering on mobile */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Tablet improvements */
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* Optimize for tablet layouts */
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
