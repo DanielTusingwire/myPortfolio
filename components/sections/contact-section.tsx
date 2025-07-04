@@ -43,43 +43,6 @@ export function ContactSection() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-
-    if (!validateForm()) {
-      // Focus on first error field
-      const firstErrorField = Object.keys(errors)[0]
-      const errorElement = formRef.current?.querySelector(`[name="${firstErrorField}"]`) as HTMLElement
-      errorElement?.focus()
-      return
-    }
-
-    setIsSubmitting(true)
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-
-    // Announce success to screen readers
-    const announcement = "Message sent successfully! I'll get back to you within 24 hours."
-    const announcer = document.createElement("div")
-    announcer.setAttribute("aria-live", "assertive")
-    announcer.setAttribute("aria-atomic", "true")
-    announcer.className = "sr-only"
-    announcer.textContent = announcement
-    document.body.appendChild(announcer)
-
-    // Reset form after success animation
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({ name: "", email: "", subject: "", message: "" })
-      setErrors({})
-      document.body.removeChild(announcer)
-    }, 3000)
-  }
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({
@@ -95,6 +58,55 @@ export function ContactSection() {
       }))
     }
   }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      // Focus on first error field
+      const firstErrorField = Object.keys(errors)[0];
+      const errorElement = formRef.current?.querySelector(`[name="${firstErrorField}"]`) as HTMLElement;
+      errorElement?.focus();
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mwpbjeba", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: new FormData(formRef.current!),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        // Announce success to screen readers
+        const announcement = "Message sent successfully! I'll get back to you within 24 hours.";
+        const announcer = document.createElement("div");
+        announcer.setAttribute("aria-live", "assertive");
+        announcer.setAttribute("aria-atomic", "true");
+        announcer.className = "sr-only";
+        announcer.textContent = announcement;
+        document.body.appendChild(announcer);
+        // Reset form after success animation
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({ name: "", email: "", subject: "", message: "" });
+          setErrors({});
+          document.body.removeChild(announcer);
+        }, 3000);
+      } else {
+        // Handle error (show a message to the user)
+        // You can set an error state here if you want
+      }
+    } catch (error) {
+      // Handle error (show a message to the user)
+      // You can set an error state here if you want
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section
