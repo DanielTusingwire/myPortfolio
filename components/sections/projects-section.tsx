@@ -127,8 +127,7 @@ export function ProjectsSection() {
             My <span className="text-accent">Projects</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-2">
-            A collection of digital solutions I've crafted to solve real-world problems, from agricultural marketplaces
-            to educational platforms, always with a focus on user needs and technical feasibility.
+            A collection of digital solutions I've crafted to solve real-world problems
           </p>
         </motion.div>
 

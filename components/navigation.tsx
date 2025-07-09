@@ -81,7 +81,7 @@ export function Navigation() {
               className="text-xl sm:text-2xl font-bold text-accent hover:glow-accent-strong transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-900 rounded-sm"
               aria-label="Alex Chen - Home"
             >
-              AC
+              Danny
             </Link>
 
             {/* Desktop Navigation */}
