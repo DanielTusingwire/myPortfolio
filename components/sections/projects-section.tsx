@@ -30,18 +30,18 @@ const projects = [
     link: "https://www.figma.com/proto/MPfl5K0T7G8zCBSvez50ZB/Budytalk-App--local-?page-id=0%3A1&node-id=1793-4440&p=f&viewport=414%2C238%2C0.03&t=HYFWPHvVLTbM8gxi-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1793%3A4440",
     github: "#",
   },
-  {
-    id: 3,
-    slug: "fullness-finance-habits",
-    title: "Fullness – Personal Finance & Habit Builder",
-    description:
-      "A human-centered finance app designed to help users build better money habits through personalized daily tasks, budget tracking, account monitoring, and simplified financial planning. Fullness empowers individuals to take control of their finances—one intentional step at a time.",
-    image: "/images/fullness.png",
-    tags: ["Product Design", "UX Strategy", "Financial Wellness"],
-    color: "from-blue-400 to-green-500",
-    link: "https://www.figma.com/proto/369WPwzkPBxcZrCDtYe7xi/Fullness-Application--Copy-?page-id=0%3A1&node-id=4972-3821&p=f&viewport=426%2C190%2C0.05&t=vz1OlsKYkEwzvPEP-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A5&show-proto-sidebar=1",
-    github: "#",
-  },
+  // {
+  //   id: 3,
+  //   slug: "fullness-finance-habits",
+  //   title: "Fullness – Personal Finance & Habit Builder",
+  //   description:
+  //     "A human-centered finance app designed to help users build better money habits through personalized daily tasks, budget tracking, account monitoring, and simplified financial planning. Fullness empowers individuals to take control of their finances—one intentional step at a time.",
+  //   image: "/images/fullness.png",
+  //   tags: ["Product Design", "UX Strategy", "Financial Wellness"],
+  //   color: "from-blue-400 to-green-500",
+  //   link: "https://www.figma.com/proto/369WPwzkPBxcZrCDtYe7xi/Fullness-Application--Copy-?page-id=0%3A1&node-id=4972-3821&p=f&viewport=426%2C190%2C0.05&t=vz1OlsKYkEwzvPEP-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A5&show-proto-sidebar=1",
+  //   github: "#",
+  // },
   {
     id: 4,
     slug: "utluff-service-connector",
